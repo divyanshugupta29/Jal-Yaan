@@ -10,13 +10,14 @@ import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class ProfileActivity extends AppCompatActivity {
     FirebaseAuth auth;
     FirebaseDatabase db;
-    TextInputLayout nameInput,mobileInput,streetInput,cityInput,pincodeInput;
+    TextInputLayout nameInput,mobileInput,streetInput,cityInput,pincodeInput,emailInput;
     AppCompatButton btn;
 
 
@@ -30,6 +31,7 @@ public class ProfileActivity extends AppCompatActivity {
         streetInput = findViewById(R.id.street);
         cityInput = findViewById(R.id.city);
         pincodeInput = findViewById(R.id.pincode);
+        emailInput = findViewById(R.id.profile_email);
         auth = FirebaseAuth.getInstance();
         db = FirebaseDatabase.getInstance();
         //DatabaseReference root = db.getReference();
@@ -49,8 +51,8 @@ public class ProfileActivity extends AppCompatActivity {
         String city = cityInput.getEditText().getText().toString().trim();
         String pincode = pincodeInput.getEditText().getText().toString().trim();
         String uid = auth.getUid().toString();
-
-        User user = new User(uid,name,mobile,street,city,pincode,"No Image");
+        String email =emailInput.getEditText().getText().toString().trim();
+        User user = new User(uid,name,mobile,street,city,pincode,"No Image",email);
         return user;
     }
     public void insertProfileToDatabase(){

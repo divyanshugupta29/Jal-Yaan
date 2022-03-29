@@ -15,7 +15,6 @@ public class Order {
         this.quantiy = quantiy;
         this.price = price;
         this.isDelivered = false;
-        this.date = LocalDateTime.now();
     }
 
     public boolean isDelivered() {

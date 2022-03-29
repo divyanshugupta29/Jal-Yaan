@@ -9,7 +9,7 @@ public class User {
 
 
 
-    public User(String uid, String name, String mobileNumber, String street, String city, String pincode, String profileImage) {
+    public User(String uid, String name, String mobileNumber, String street, String city, String pincode, String profileImage,String email) {
         this.uid = uid;
         this.name = name;
         this.mobileNumber = mobileNumber;
@@ -18,6 +18,11 @@ public class User {
         this.pincode = pincode;
         this.profileImage = profileImage;
         this.isAdmin = false;
+        this.email = email;
+    }
+
+    public String getEmail() {
+        return email;
     }
 
     public String getUid() {

@@ -59,6 +59,7 @@
                 android:textStyle="bold"
                 android:layout_weight="1"/>
             <TextView
+                android:id="@+id/setting_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Divyanshu Gupta"
@@ -90,6 +91,7 @@
                 android:textStyle="bold"
                 />
             <TextView
+                android:id="@+id/setting_address"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Infront of son chiraiya office karera Madhya pradesh"
