@@ -16,6 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.razorpay.Checkout;
 import com.razorpay.PaymentResultListener;
@@ -25,6 +26,8 @@ import org.json.JSONObject;
 public class MainActivity extends AppCompatActivity implements PaymentResultListener {
     TextView quantity_tv,water_price_tv,total_water_price_tv,bottle_price_tv,total_bottle_price_tv,total_price_tv;
     CardView paymentBtn;
+    FirebaseAuth auth;
+    Order order;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +35,7 @@ public class MainActivity extends AppCompatActivity implements PaymentResultList
         setContentView(R.layout.activity_main);
         Checkout.preload(getApplicationContext());
         getSupportActionBar().setTitle("Book Now");
+        auth = FirebaseAuth.getInstance();
         quantity_tv = findViewById(R.id.quantity_tv);
         water_price_tv = findViewById(R.id.water_price_tv);
         total_water_price_tv = findViewById(R.id.total_water_price_tv);
@@ -174,10 +178,21 @@ public class MainActivity extends AppCompatActivity implements PaymentResultList
     @Override
     public void onPaymentSuccess(String s) {
         Toast.makeText(this, "Payment Successful : " + s, Toast.LENGTH_SHORT).show();
+        Order order = createOrder(s);
+        DatabaseReference node = FirebaseDatabase.getInstance().getReference("Orders");
+        node.child(order.getUid()).push().setValue(order);
+        Toast.makeText(this, "Order Inserted", Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public void onPaymentError(int i, String s) {
         Toast.makeText(this, "Payment Fail and cause is "+s, Toast.LENGTH_LONG).show();
     }
+
+    public Order createOrder(String orderId){
+        String quantity = quantity_tv.getText().toString();
+        String total = String.valueOf(Integer.parseInt(quantity)*100 + Integer.parseInt(quantity)*20);
+        return new Order(orderId,auth.getUid().toString(),quantity,total);
+    }
+
 }

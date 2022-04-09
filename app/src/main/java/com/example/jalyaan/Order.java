@@ -8,7 +8,7 @@ public class Order {
     String quantiy;
     String price;
     boolean isDelivered;
-    LocalDateTime date;
+    //LocalDateTime date;
     public Order(String orderID, String uid, String quantiy, String price) {
         this.orderID = orderID;
         this.uid = uid;
@@ -20,6 +20,27 @@ public class Order {
     public boolean isDelivered() {
         return isDelivered;
     }
+
+    public void setOrderID(String orderID) {
+        this.orderID = orderID;
+    }
+
+    public void setUid(String uid) {
+        this.uid = uid;
+    }
+
+    public void setQuantiy(String quantiy) {
+        this.quantiy = quantiy;
+    }
+
+    public void setPrice(String price) {
+        this.price = price;
+    }
+
+    public void setDelivered(boolean delivered) {
+        isDelivered = delivered;
+    }
+
 
     public String getOrderID() {
         return orderID;
