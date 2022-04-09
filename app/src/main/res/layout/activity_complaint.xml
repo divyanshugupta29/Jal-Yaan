@@ -8,6 +8,7 @@
     android:orientation="vertical"
     tools:context=".ComplaintActivity">
     <EditText
+        android:id="@+id/complaint_subject"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/rectangular_border"
@@ -16,15 +17,18 @@
         android:hint="Subject"
         android:layout_marginBottom="16dp"/>
     <EditText
+        android:id="@+id/complaint_description"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/rectangular_border"
         android:padding="8dp"
         android:maxLines="1"
         android:lines="10"
+        android:gravity="clip_vertical"
         android:hint="Description"
         android:layout_marginBottom="16dp"/>
     <Button
+        android:id="@+id/complaint_submitBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="submit"
