@@ -13,6 +13,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class UserOrdersAdapter extends FirebaseRecyclerAdapter<Order,UserOrdersAdapter.UserOrderViewHolder> {
 
@@ -37,6 +39,14 @@ public class UserOrdersAdapter extends FirebaseRecyclerAdapter<Order,UserOrdersA
             holder.isDeliveredTV.setBackgroundColor(Color.GREEN);
         }
         Log.v("Order",model.getOrderID());
+        holder.cancelBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FirebaseAuth auth = FirebaseAuth.getInstance();
+                FirebaseDatabase.getInstance().getReference().child("Orders").child(auth.getUid().toString())
+                        .child(getRef(holder.getAdapterPosition()).getKey()).removeValue();
+            }
+        });
     }
 
     @NonNull
