@@ -9,6 +9,11 @@ public class Order {
     String price;
     boolean isDelivered;
     //LocalDateTime date;
+
+
+    public Order() {
+    }
+
     public Order(String orderID, String uid, String quantiy, String price) {
         this.orderID = orderID;
         this.uid = uid;

@@ -115,8 +115,8 @@ public class MainActivity extends AppCompatActivity implements PaymentResultList
                 break;
 
             case R.id.history:
-                
-                Toast.makeText(this, "History", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(MainActivity.this,OrderActivity.class));
+                //Toast.makeText(this, "History", Toast.LENGTH_SHORT).show();
                 break;
 
             case R.id.setting:

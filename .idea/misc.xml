@@ -11,10 +11,12 @@
         <entry key="app/src/main/res/layout/activity_contact_us.xml" value="0.23802083333333332" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.23802083333333332" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.23752034505208344" />
+        <entry key="app/src/main/res/layout/activity_order.xml" value="0.23802083333333332" />
         <entry key="app/src/main/res/layout/activity_profile.xml" value="0.23802083333333332" />
         <entry key="app/src/main/res/layout/activity_settings.xml" value="0.23802083333333332" />
         <entry key="app/src/main/res/layout/activity_sign_up.xml" value="0.28640594482421877" />
         <entry key="app/src/main/res/layout/activity_splash.xml" value="0.23802083333333332" />
+        <entry key="app/src/main/res/layout/order.xml" value="0.23802083333333332" />
         <entry key="app/src/main/res/layout/order_layout.xml" value="0.23802083333333332" />
         <entry key="app/src/main/res/menu/options.xml" value="0.23802083333333332" />
       </map>
